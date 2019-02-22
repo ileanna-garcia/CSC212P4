@@ -3,6 +3,10 @@ package edu.smith.cs.csc212.p4;
 import java.util.List;
 
 /**
+ * I went to TA hours, talked to Kiara and Anabel for questions, and got code from Piazza.
+ */
+
+/**
  * This is our main class for P4. It interacts with a GameWorld and handles user-input.
  * @author jfoley
  *
@@ -18,7 +22,12 @@ public class InteractiveFiction {
 		TextInput input = TextInput.fromArgs(args);
 
 		// This is the game we're playing.
-		GameWorld game = new SpookyMansion();
+		GameWorld game = new Henshaw();
+		
+		/**
+		 * This is calling GameTime class 
+		 */
+		GameTime time = new GameTime(0, 0);
 		
 		// This is the current location of the player (initialize as start).
 		// Maybe we'll expand this to a Player object.
@@ -29,7 +38,7 @@ public class InteractiveFiction {
 		while (true) {
 			// Print the description of where you are.
 			Place here = game.getPlace(place);
-			System.out.println(here.getDescription());
+			System.out.println(here.printDescription(time));
 
 			// Game over after print!
 			if (here.isTerminalState()) {
@@ -43,7 +52,7 @@ public class InteractiveFiction {
 			    Exit e = exits.get(i);
 				System.out.println(" ["+i+"] " + e.getDescription());
 			}
-
+			
 			// Figure out what the user wants to do, for now, only "quit" is special.
 			List<String> words = input.getUserWords(">");
 			if (words.size() == 0) {
@@ -57,35 +66,64 @@ public class InteractiveFiction {
 			// Get the word they typed as lowercase, and no spaces.
 			String action = words.get(0).toLowerCase().trim();
 			
-			if (action.equals("quit") || action.equals("q") || action.equals("escape")) {
+				
+			if (action.equals("quit")) {
 				if (input.confirm("Are you sure you want to quit?")) {
 					break;
 				} else {
 					continue;
 				}
 			}
-			
+			/**
+			 * This will help us find a secret exit 
+			 */
+			else if(action.equals("search")) {
+				here.search();
+				}
+			else {
+				Integer exitNum = null;
+				try {
+					exitNum = Integer.parseInt(action);
+				} catch (NumberFormatException nfe) {
+					System.out.println("That's not something I understand! Try a number!");
+					continue;
+				}
+				
+				if (exitNum < 0 || exitNum > exits.size()) {
+					System.out.println("I don't know what to do with that number!");
+					continue;
+				}
+
+				// Move to the room they indicated.
+				Exit destination = exits.get(exitNum);
+				place = destination.getTarget();
+
+			}	
+		
+	
 			// From here on out, what they typed better be a number!
-			Integer exitNum = null;
-			try {
-				exitNum = Integer.parseInt(action);
-			} catch (NumberFormatException nfe) {
-				System.out.println("That's not something I understand! Try a number!");
-				continue;
-			}
+			/**
+			 * This is allowing for the method to keep looping inside this while-loop and changing the hour
+			 */
+			time.increaseHour();
+			/**
+			 * This is allowing for the method to keep looping inside this while-loop and adding to final hours
+			 */
+			time.increasefinalHour();
+			/**
+			 * Every time hours are divisible by 5 we forward the time 2 hours.
+			 */
+			time.rest();
 			
-			if (exitNum < 0 || exitNum > exits.size()) {
-				System.out.println("I don't know what to do with that number!");
-				continue;
-			}
-
-			// Move to the room they indicated.
-			Exit destination = exits.get(exitNum);
-			place = destination.getTarget();
+		
 		}
-
+		
 		// You get here by "quit" or by reaching a Terminal Place.
 		System.out.println(">>> GAME OVER <<<");
+		/**
+		 * This is going to print out how many hours you were stuck
+		 */
+		System.out.println("YOU WERE TRAPPED FOR " + time.getfinalHour() +" HOURS.");
 	}
 
 }

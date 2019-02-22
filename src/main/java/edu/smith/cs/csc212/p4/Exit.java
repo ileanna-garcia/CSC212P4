@@ -17,6 +17,22 @@ public class Exit {
 	 */
 	private String target;
 	
+	
+	/**
+	 * Exits that are secret are displayed if they are searched for
+	 */
+	
+	public boolean isSecret() {
+
+		return false;
+		}
+	
+	/**
+	 * You can make a method getSecret() within the exit class and have it return 
+	 * the hidden variable, and then use the method to check from other classes?
+	 */
+	
+
 	/**
 	 * Create a new Exit.
 	 * @param target - where it goes.
@@ -75,5 +91,8 @@ public class Exit {
 			return this.target.equals(rhs.target) && this.description.equals(rhs.description); 
 		}
 		return false;
+	}
+	public void search() {
+		
 	}
 }

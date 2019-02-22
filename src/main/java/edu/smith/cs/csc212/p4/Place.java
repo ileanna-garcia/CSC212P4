@@ -14,6 +14,7 @@ public class Place {
 	 * This is a list of places we can get to from this place.
 	 */
 	private List<Exit> exits;
+	
 	/**
 	 * This is the identifier of the place.
 	 */
@@ -33,7 +34,7 @@ public class Place {
 	 * @param description - the user-facing description of the place.
 	 * @param terminal - whether this place ends the game.
 	 */
-	private Place(String id, String description, boolean terminal) {
+	public Place(String id, String description, boolean terminal) {
 		this.id = id;
 		this.description = description;
 		this.exits = new ArrayList<>();
@@ -66,20 +67,28 @@ public class Place {
 	
 	/**
 	 * The narrative description of this place.
+	 * Implementing GameTime in order to know whether it is day or night to print a certain description
 	 * @return what we show to a player about this place.
 	 */
-	public String getDescription() {
+	public String printDescription(GameTime time) {
 		return this.description;
+		
 	}
 
 	/**
-	 * Get a view of the exits from this Place, for navigation.
+	 * Get a view of the exits from this Place, for navigation. 
+	 * This code was gotten from JJ on Piazza
 	 * @return all the exits from this place.
 	 */
 	public List<Exit> getVisibleExits() {
-		return Collections.unmodifiableList(exits);
+		  List<Exit> output = new ArrayList<>();
+		  for (Exit e : this.exits) {
+		    if (e.isSecret() != true) {
+		    output.add(e);
+		    }
+		}
+		return output;
 	}
-	
 	/**
 	 * This is a terminal location (good or bad).
 	 * @param id - this is the id of the place (for creating {@link Exit} objects that go here).
@@ -123,5 +132,15 @@ public class Place {
 		}
 		return false;
 	}
+	
+	/**
+	 * JJ's code from Piazza
+	 */
+	public void search() {
+		  for (Exit e : this.exits) {
+		    // search makes it not secret any more if it's a SecretExit!
+		    e.search();
+		  }
+		}
 	
 }
