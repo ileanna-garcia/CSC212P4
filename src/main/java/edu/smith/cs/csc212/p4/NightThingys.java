@@ -1,6 +1,6 @@
 package edu.smith.cs.csc212.p4;
 
-public class NightPlaces extends Place {
+public class NightThingys extends Thingy {
 	/**
 	 * This initializes what night and morning descriptions are
 	 */
@@ -8,9 +8,9 @@ String nightDescription;
 String morningDescription;
 
 /**
- * creates the constructors for night places 
+ * creates the constructors for night Thingys 
  */
-	public NightPlaces(String id, String nightDescription, boolean terminal, String morningDescription) {
+	public NightThingys(String id, String nightDescription, boolean terminal, String morningDescription) {
 		super(id, nightDescription,terminal);
 		this.nightDescription = nightDescription;
 		this.morningDescription = morningDescription;
@@ -32,14 +32,14 @@ String morningDescription;
 	/**
 	 * This description is to change night to morning if the exit isn't terminal
 	 */	
-	public static NightPlaces create1(String id, String nightDescription, String morningDescription) {
-		return new NightPlaces(id, nightDescription, false, morningDescription);
+	public static NightThingys create1(String id, String nightDescription, String morningDescription) {
+		return new NightThingys(id, nightDescription, false, morningDescription);
 	}
 
 	/**
 	 * This description is to change night to morning if the exit is terminal
 	 */
-	public static NightPlaces terminal1(String id, String nightDescription, String morningDescription) {
-		return new NightPlaces(id, nightDescription, true, morningDescription);
+	public static NightThingys terminal1(String id, String nightDescription, String morningDescription) {
+		return new NightThingys(id, nightDescription, true, morningDescription);
 	}
 }

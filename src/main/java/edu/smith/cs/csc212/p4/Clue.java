@@ -3,13 +3,13 @@ package edu.smith.cs.csc212.p4;
 import java.util.Objects;
 
 /**
- * This class represents an exit from a Place to another Place.
+ * This class represents an Clue from a Place to another Place.
  * @author jfoley
  *
  */
-public class Exit {
+public class Clue {
 	/**
-	 * How do we describe this exit to a user, e.g., "A door with a spiderweb."
+	 * How do we describe this Clue to a user, e.g., "A door with a spiderweb."
 	 */
 	private String description;
 	/**
@@ -19,7 +19,7 @@ public class Exit {
 	
 	
 	/**
-	 * Exits that are secret are displayed if they are searched for
+	 * Clues that are secret are displayed if they are searched for
 	 */
 	
 	public boolean isSecret() {
@@ -28,23 +28,23 @@ public class Exit {
 		}
 	
 	/**
-	 * You can make a method getSecret() within the exit class and have it return 
+	 * You can make a method getSecret() within the Clue class and have it return 
 	 * the hidden variable, and then use the method to check from other classes?
 	 */
 	
 
 	/**
-	 * Create a new Exit.
+	 * Create a new Clue.
 	 * @param target - where it goes.
 	 * @param description - how it looks.
 	 */
-	public Exit(String target, String description) {
+	public Clue(String target, String description) {
 		this.description = description;
 		this.target = target;
 	}
 	
 	/**
-	 * A getter for the description of this exit.
+	 * A getter for the description of this Clue.
 	 * @return how it looks.
 	 */
 	public String getDescription() {
@@ -52,7 +52,7 @@ public class Exit {
 	}
 	
 	/**
-	 * A getter for the target place of this exit.
+	 * A getter for the target place of this Clue.
 	 * @return where it goes.
 	 */
 	public String getTarget() {
@@ -63,7 +63,7 @@ public class Exit {
 	 * Make this debuggable when we print it for ourselves.
 	 */
 	public String toString() {
-		return "Exit("+this.description+", "+this.target+")";
+		return "Clue("+this.description+", "+this.target+")";
 	}
 	
 	/**
@@ -75,10 +75,10 @@ public class Exit {
 	
 	/**
 	 * This is a useful definition of being the same.
-	 * @param other - another exit.
+	 * @param other - another Clue.
 	 * @return if they go to the same place.
 	 */
-	public boolean goesToSamePlace(Exit other) {
+	public boolean goesToSamePlace(Clue other) {
 		return this.target.equals(other.target);
 	}
 	
@@ -86,8 +86,8 @@ public class Exit {
 	 * The other half of hashCode that lets us put it in a HashMap or HashSet.
 	 */
 	public boolean equals(Object other) {
-		if (other instanceof Exit) {
-			Exit rhs = (Exit) other;
+		if (other instanceof Clue) {
+			Clue rhs = (Clue) other;
 			return this.target.equals(rhs.target) && this.description.equals(rhs.description); 
 		}
 		return false;

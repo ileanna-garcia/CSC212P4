@@ -28,16 +28,20 @@ public class InteractiveFiction {
 		 * This is calling GameTime class 
 		 */
 		GameTime time = new GameTime(0, 0);
+		/**
+		 * This is calling GameTime class 
+		 */
+		GameTemperature temp = new GameTemperature(0, 0);
 		
 		// This is the current location of the player (initialize as start).
 		// Maybe we'll expand this to a Player object.
-		String place = game.getStart();
+		String Thingy = game.getStart();
 
 		// Play the game until quitting.
 		// This is too hard to express here, so we just use an infinite loop with breaks.
 		while (true) {
 			// Print the description of where you are.
-			Place here = game.getPlace(place);
+			Thingy here = game.getThingy(Thingy);
 			System.out.println(here.printDescription(time));
 
 			// Game over after print!
@@ -45,11 +49,11 @@ public class InteractiveFiction {
 				break;
 			}
 
-			// Show a user the ways out of this place.
-			List<Exit> exits = here.getVisibleExits();
+			// Show a user the ways out of this Thingy.
+			List<Clue> Clues = here.getVisibleClues();
 			
-			for (int i=0; i<exits.size(); i++) {
-			    Exit e = exits.get(i);
+			for (int i=0; i<Clues.size(); i++) {
+			    Clue e = Clues.get(i);
 				System.out.println(" ["+i+"] " + e.getDescription());
 			}
 			
@@ -75,28 +79,28 @@ public class InteractiveFiction {
 				}
 			}
 			/**
-			 * This will help us find a secret exit 
+			 * This will help us find a secret Clue 
 			 */
 			else if(action.equals("search")) {
 				here.search();
 				}
 			else {
-				Integer exitNum = null;
+				Integer ClueNum = null;
 				try {
-					exitNum = Integer.parseInt(action);
+					ClueNum = Integer.parseInt(action);
 				} catch (NumberFormatException nfe) {
 					System.out.println("That's not something I understand! Try a number!");
 					continue;
 				}
 				
-				if (exitNum < 0 || exitNum > exits.size()) {
+				if (ClueNum < 0 || ClueNum > Clues.size()) {
 					System.out.println("I don't know what to do with that number!");
 					continue;
 				}
 
 				// Move to the room they indicated.
-				Exit destination = exits.get(exitNum);
-				place = destination.getTarget();
+				Clue destination = Clues.get(ClueNum);
+				Thingy = destination.getTarget();
 
 			}	
 		
@@ -114,16 +118,33 @@ public class InteractiveFiction {
 			 * Every time hours are divisible by 5 we forward the time 2 hours.
 			 */
 			time.rest();
-			
+			// From here on out, what they typed better be a number!
+			/**
+			 * This is allowing for the method to keep looping inside this while-loop and changing the hour
+			 */
+			temp.increaseDegree();
+			/**
+			 * This is allowing for the method to keep looping inside this while-loop and adding to final hours
+			 */
+			temp.increasefinalDegree();
+			/**
+			 * Every time hours are divisible by 5 we forward the time 2 hours.
+			*/
+			temp.rest();
+						
 		
 		}
 		
-		// You get here by "quit" or by reaching a Terminal Place.
+		// You get here by "quit" or by reaching a Terminal Thingy.
 		System.out.println(">>> GAME OVER <<<");
 		/**
 		 * This is going to print out how many hours you were stuck
 		 */
 		System.out.println("YOU WERE TRAPPED FOR " + time.getfinalHour() +" HOURS.");
+		/**
+		 * This is going to print out how hot it was when you escaped.
+		 */
+		System.out.println("IT IS " + temp.getfinalDegree() +"FAHRENHEIT");
 	}
 
 }
