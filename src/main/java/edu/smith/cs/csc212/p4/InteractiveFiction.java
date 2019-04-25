@@ -42,7 +42,7 @@ public class InteractiveFiction {
 		while (true) {
 			// Print the description of where you are.
 			Thingy here = game.getThingy(Thingy);
-			System.out.println(here.printDescription(time));
+			System.out.println(here.printDescription(temp));
 
 			// Game over after print!
 			if (here.isTerminalState()) {
@@ -122,7 +122,7 @@ public class InteractiveFiction {
 			/**
 			 * This is allowing for the method to keep looping inside this while-loop and changing the hour
 			 */
-			temp.increaseDegree();
+			temp.increaseDegree(time);
 			/**
 			 * This is allowing for the method to keep looping inside this while-loop and adding to final hours
 			 */
@@ -131,7 +131,7 @@ public class InteractiveFiction {
 			 * Every time hours are divisible by 5 we forward the time 2 hours.
 			*/
 			temp.rest();
-						
+			temp.deathTemp();
 		
 		}
 		

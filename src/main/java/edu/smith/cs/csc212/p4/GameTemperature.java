@@ -41,12 +41,12 @@ int finalDegrees;
  * 23 then it restarts into another day
  * after the loop is done it'll display the Temperature
  */
-public void increaseDegree() {
+public void increaseDegree(GameTime time) {
 	Degrees +=1;
-	while(Degrees > 250) {
-		break;
+	System.out.println("It's currently " + Degrees +" degree fahrenheit");
+	if (time.getHour() % 2 == 0 ) {
+		Degrees += 2;
 	}
-	System.out.print("It's currently " + Degrees +"fahrenheit");
 	
 }
 
@@ -60,8 +60,8 @@ public void increasefinalDegree() {
  * This increases Degrees by 2 if conditional is true to make it faster to night
  */
 public void rest() {
-	if(Degrees%5==0) {
-	Degrees +=2;
+	if(Degrees % 5 == 0) {
+	Degrees +=30;
 	}
 	
 }
@@ -79,6 +79,14 @@ public boolean isHot() {
 		
 		return true;
 	}
+	}
+public void deathTemp() {
+	while(Degrees >= 250) {
+		if(Degrees == 250) {
+			break;	
+		}
+}
+	
 	
 }
 

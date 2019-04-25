@@ -17,14 +17,14 @@ public class Henshaw implements GameWorld {
 	
 	public Henshaw() {
 		/**
-		 * adds regular Thingy and Clue with no night descriptions
+		 * adds regular Thingy and Clue with no hot descriptions
 		 */
 		Thingy FrontDoor = insert( Thingy.create("frontdoor", ("You've entered Henshaw's Halls.\n" + "This Thingy looks a bit haunting. Where should I go to escape?")));
 		FrontDoor.addClue(new Clue("topfloor", "There's something flickering up there."));
 		FrontDoor.addClue(new Clue("basement", "It's pitch dark down there."));
 
 		/**
-		 * adds regular Thingy and Clue with no night descriptions
+		 * adds regular Thingy and Clue with no hot descriptions
 		 */
 		Thingy TopFloor = insert( Thingy.create("topfloor", "We're on the top floor. \n" + "Looks like there's a noise coming from one of the rooms."));
 		TopFloor.addClue(new Clue("frontdoor","I'm going back down."));
@@ -32,33 +32,33 @@ public class Henshaw implements GameWorld {
 		TopFloor.addClue(new Clue("techroom", "Wait.. there's a noise over there in the tech room."));
 		TopFloor.addClue(new Clue("bathroom", "Actually, I need to use the bathroom."));
 		/**
-		 * adds regular Thingy and Clue with no night descriptions
+		 * adds regular Thingy and Clue with no hot descriptions
 		 */
 		Thingy TVStudio = insert( Thingy.create("tvstudio", "Seems like someone left the TV on here in the studio."));
 		TVStudio.addClue(new Clue("topfloor", "I found the control and turned it off so I'll just go back."));
 		TVStudio.addClue(new Clue("techroom", "Wait.. there's a noise over there in the tech room."));
 		
 		/**
-		 * adds regular Thingy and secretClue with no night descriptions
+		 * adds regular Thingy and secretClue with no hot descriptions
 		 */
 		Thingy TechRoom = insert( Thingy.create("techroom", "I really hope I don't break anything in the tech room, it's really dark.\n" + 
 												"Woah this laptop is blaring music... Who's here?"));
 		TechRoom.addClue(new Clue("tvstudio", "Looks like the tv turned back on. I should check it out."));
 		TechRoom.addClue(new SecretClue("bathroom", "Actually, I need to use the bathroom."));
 		/**
-		 * adds regular Thingy and Clue with night descriptions
+		 * adds regular Thingy and Clue with hot descriptions
 		 */
-		NightThingys Bathroom = (NightThingys) insert( NightThingys.create1("bathroom", "Just your standard haunted nighttime bathroom with a random locked door isn't it?", 
+		hotThingys Bathroom = (hotThingys) insert( hotThingys.create1("bathroom", "Just your standard haunted hottime bathroom with a random locked door isn't it?", 
 				"This morning I woke up with such a big need to pee I might as well stay here."));
 		Bathroom.addClue(new Clue("bathroom", "WHY IS THE DOOR LOCKED??!!? I CAN'T GET OUT!"));
 		Bathroom.addClue(new Clue("henshawkiller", "Hello? I thought I was alone?"));
 		/**
-		 * adds regular Thingy and Clue with night descriptions
+		 * adds regular Thingy and Clue with hot descriptions
 		 */
-		NightThingys Henshawkiller = (NightThingys) insert(	NightThingys.terminal1("henshawkiller", "You have found the Henshaw Killer and failed to escape.\n"
-				+"Say your last goodnight loser","You have found the Henshaw Killer and failed to escape.\n" + "Say your last goodmornings loser"));
+		hotThingys Henshawkiller = (hotThingys) insert(	hotThingys.terminal1("henshawkiller", "You have found the Henshaw Killer and failed to escape.\n"
+				+"Say your last goodhot loser","You have found the Henshaw Killer and failed to escape.\n" + "Say your last goodmornings loser"));
 		/**
-		 * adds regular Thingy and Clue with no night descriptions
+		 * adds regular Thingy and Clue with no hot descriptions
 		 */
 		Thingy Basement = insert( Thingy.create("basement", "It's really dark in this basement I'm not too sure I'll find anything"));
 		Basement.addClue(new Clue("frontdoor" , "I'm going back up."));
@@ -67,33 +67,33 @@ public class Henshaw implements GameWorld {
 									"Let's explore!"));
 		Basement.addClue(new Clue("confrenceroom", "Is there coffee here?\n" + "I guess so since it is a confrence room."));
 		/**
-		 * adds regular Thingy and Clue with no night descriptions
+		 * adds regular Thingy and Clue with no hot descriptions
 		 */
 		Thingy SecretRoom = insert(Thingy.create("secretroom", "I dont think this is in the floor plan."));
 		SecretRoom.addClue(new Clue("basement", "I'm freaking scared I'm going back"));
 		SecretRoom.addClue(new Clue("quad", "Wait.. this door can lead me somewhere."));
 		SecretRoom.addClue(new Clue("bathroom", "A staircase? Whaaaaat?"));
 		/**
-		 * adds regular Thingy and Clue with no night descriptions
+		 * adds regular Thingy and Clue with no hot descriptions
 		 */
 		Thingy SoundProof = insert( Thingy.create("soundproof", "If I get trapped in the soundproof room I think no one will hear me."));
 		SoundProof.addClue(new Clue("soundproof", "The door locked behind me and this other door won't open.\n" + 
 		"I think I'm trapped here."));
 		/**
-		 * adds regular Thingy and secretClue with no night descriptions
+		 * adds regular Thingy and secretClue with no hot descriptions
 		 */		
 		Thingy ConfrenceRoom = insert( Thingy.create("confrenceroom", "WHY ARE ALL MY PROFESSORS HERE?"));
 		ConfrenceRoom.addClue(new Clue("soundproof", "Wait.. this door is the closest to get out."));
 		ConfrenceRoom.addClue(new SecretClue("quad", "The farthest door has a shiny doorknob I. MUST. TOUCH."));
 		/**
-		 * adds regular Thingy and Clue with night descriptions
+		 * adds regular Thingy and Clue with hot descriptions
 		 */
-		NightThingys quad = (NightThingys) insert(NightThingys.create1("quad", "The moons reflection is shining.", "I think I smell pancakes from Cutter?"));
+		hotThingys quad = (hotThingys) insert(hotThingys.create1("quad", "The moons reflection is shining.", "I think I smell pancakes from Cutter?"));
 		quad.addClue(new Clue("outside", "\"WOOOOOOOOOOO I OPENED IT (after too many tries)."));
 		/**
-		 * adds regular Thingy and Clue with night descriptions
+		 * adds regular Thingy and Clue with hot descriptions
 		 */
-		NightThingys outside = (NightThingys) insert(NightThingys.terminal1("outside", "You have found the Clue at night.\n"
+		hotThingys outside = (hotThingys) insert(hotThingys.terminal1("outside", "You have found the Clue at hot.\n"
 				+"You win!" , "Seems like it's morning but you found the Clue.\n" + "You win"));
 		
 		

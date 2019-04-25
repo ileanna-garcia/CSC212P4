@@ -70,7 +70,7 @@ public class Thingy {
 	 * Implementing GameTime in order to know whether it is day or night to print a certain description
 	 * @return what we show to a player about this Thingy.
 	 */
-	public String printDescription(GameTime time) {
+	public String printDescription(GameTemperature temp) {
 		return this.description;
 		
 	}
