@@ -51,12 +51,6 @@ public void increaseDegree(GameTime time) {
 }
 
 /**
- * This increases final Degree without any conditions stopping it
- */
-public void increasefinalDegree() {
-	finalDegrees += 1;
-}
-/**
  * This increases Degrees by 2 if conditional is true to make it faster to night
  */
 public void rest() {

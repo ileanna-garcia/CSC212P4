@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class Thingy {
 	/**
-	 * This is a list of Thingys we can get to from this Thingy.
+	 * This is a list of Clues we can get to from this Thingy.
 	 */
 	private List<Clue> Clues;
 	
@@ -27,6 +27,11 @@ public class Thingy {
 	 * Whether reaching this Thingy ends the game.
 	 */
 	private boolean terminal;
+	
+	/**
+	 * Empty array used to store clues
+	 */
+	
 	
 	/**
 	 * Internal only constructor for Thingy. Use {@link #create(String, String)} or {@link #terminal(String, String)} instead.

@@ -1,10 +1,7 @@
 package edu.smith.cs.csc212.p4;
 
+import java.util.ArrayList;
 import java.util.List;
-
-/**
- * I went to TA hours, talked to Kiara and Anabel for questions, and got code from Piazza.
- */
 
 /**
  * This is our main class for P4. It interacts with a GameWorld and handles user-input.
@@ -12,6 +9,8 @@ import java.util.List;
  *
  */
 public class InteractiveFiction {
+
+	private static final int ClueNum = 0;
 
 	/**
 	 * This is where we play the game.
@@ -29,7 +28,7 @@ public class InteractiveFiction {
 		 */
 		GameTime time = new GameTime(0, 0);
 		/**
-		 * This is calling GameTime class 
+		 * This is calling GameTempertaure class 
 		 */
 		GameTemperature temp = new GameTemperature(0, 0);
 		
@@ -37,6 +36,7 @@ public class InteractiveFiction {
 		// Maybe we'll expand this to a Player object.
 		String Thingy = game.getStart();
 
+		ArrayList<Clue> BackPack= new ArrayList<>();
 		// Play the game until quitting.
 		// This is too hard to express here, so we just use an infinite loop with breaks.
 		while (true) {
@@ -57,6 +57,9 @@ public class InteractiveFiction {
 				System.out.println(" ["+i+"] " + e.getDescription());
 			}
 			
+			
+			
+			
 			// Figure out what the user wants to do, for now, only "quit" is special.
 			List<String> words = input.getUserWords(">");
 			if (words.size() == 0) {
@@ -69,8 +72,9 @@ public class InteractiveFiction {
 			
 			// Get the word they typed as lowercase, and no spaces.
 			String action = words.get(0).toLowerCase().trim();
-			
-				
+			if(action.equals("clues")) {
+				System.out.println(BackPack);
+			}
 			if (action.equals("quit")) {
 				if (input.confirm("Are you sure you want to quit?")) {
 					break;
@@ -88,7 +92,9 @@ public class InteractiveFiction {
 				Integer ClueNum = null;
 				try {
 					ClueNum = Integer.parseInt(action);
-				} catch (NumberFormatException nfe) {
+				
+				} 
+				catch (NumberFormatException nfe) {
 					System.out.println("That's not something I understand! Try a number!");
 					continue;
 				}
@@ -97,11 +103,16 @@ public class InteractiveFiction {
 					System.out.println("I don't know what to do with that number!");
 					continue;
 				}
+		
 
 				// Move to the room they indicated.
 				Clue destination = Clues.get(ClueNum);
 				Thingy = destination.getTarget();
-
+				
+				Clue e = Clues.get(ClueNum);
+				BackPack.add(e);
+					
+	
 			}	
 		
 	
@@ -118,15 +129,10 @@ public class InteractiveFiction {
 			 * Every time hours are divisible by 5 we forward the time 2 hours.
 			 */
 			time.rest();
-			// From here on out, what they typed better be a number!
 			/**
-			 * This is allowing for the method to keep looping inside this while-loop and changing the hour
+			 * This is allowing for the method to keep looping inside this while-loop and changing the degree
 			 */
 			temp.increaseDegree(time);
-			/**
-			 * This is allowing for the method to keep looping inside this while-loop and adding to final hours
-			 */
-			temp.increasefinalDegree();
 			/**
 			 * Every time hours are divisible by 5 we forward the time 2 hours.
 			*/
@@ -144,7 +150,7 @@ public class InteractiveFiction {
 		/**
 		 * This is going to print out how hot it was when you escaped.
 		 */
-		System.out.println("IT IS " + temp.getfinalDegree() +"FAHRENHEIT");
+		System.out.println("IT IS " + temp.getDegree() +"FAHRENHEIT");
 	}
 
 }
