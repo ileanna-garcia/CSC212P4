@@ -6,16 +6,14 @@ public class GameTemperature {
 	 */
 int Degrees ;
 
-int finalDegrees;
 
 /**
  * This is creating a constructor that allows 
  * for two parameters to be passed to GameTemperature
  */
-	public GameTemperature (int Degrees, int finalDegrees) {
+	public GameTemperature (int Degrees) {
 
 		this.Degrees = Degrees;
-		this.finalDegrees = finalDegrees;
 	
 }
 /**
@@ -26,15 +24,6 @@ int finalDegrees;
 		return Degrees;
 }
 
-
-/**
- * This returns the Degrees that will be display how long user was stuck
- * @return
- */
-	public int getfinalDegree() {
-		return finalDegrees;
-	
-}
 
 /**
  * This increases the Degrees and if the Degrees pass 
@@ -73,13 +62,14 @@ public boolean isHot() {
 		
 		return true;
 	}
-	}
+}
+
 public void deathTemp() {
 	while(Degrees >= 250) {
 		if(Degrees == 250) {
 			break;	
 		}
-}
+    }
 	
 	
 }

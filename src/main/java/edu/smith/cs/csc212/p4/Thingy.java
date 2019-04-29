@@ -1,11 +1,10 @@
 package edu.smith.cs.csc212.p4;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
- * This represents a Thingy in our text adventure.
+ * This represents a Thingy (Which is an object) in our text adventure.
  * @author jfoley
  *
  */
@@ -72,7 +71,7 @@ public class Thingy {
 	
 	/**
 	 * The narrative description of this Thingy.
-	 * Implementing GameTime in order to know whether it is day or night to print a certain description
+	 * Implementing GameTemp in order to know whether it is day or night to print a certain description
 	 * @return what we show to a player about this Thingy.
 	 */
 	public String printDescription(GameTemperature temp) {

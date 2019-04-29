@@ -2,7 +2,7 @@ package edu.smith.cs.csc212.p4;
 
 public class hotThingys extends Thingy {
 	/**
-	 * This initializes what hot and colddescriptions are
+	 * This initializes what hot and cold descriptions are
 	 */
 String hotDescription;
 String coldDescription;
@@ -30,14 +30,14 @@ String coldDescription;
 		}
 }
 	/**
-	 * This description is to change hot to coldif the exit isn't terminal
+	 * This description is to change hot to cold if the exit isn't terminal
 	 */	
 	public static hotThingys create1(String id, String hotDescription, String coldDescription) {
 		return new hotThingys(id, hotDescription, false, coldDescription);
 	}
 
 	/**
-	 * This description is to change hot to coldif the exit is terminal
+	 * This description is to change hot to cold if the exit is terminal
 	 */
 	public static hotThingys terminal1(String id, String hotDescription, String coldDescription) {
 		return new hotThingys(id, hotDescription, true, coldDescription);

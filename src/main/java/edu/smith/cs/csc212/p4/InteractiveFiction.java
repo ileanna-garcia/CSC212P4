@@ -10,7 +10,6 @@ import java.util.List;
  */
 public class InteractiveFiction {
 
-	private static final int ClueNum = 0;
 
 	/**
 	 * This is where we play the game.
@@ -30,13 +29,15 @@ public class InteractiveFiction {
 		/**
 		 * This is calling GameTempertaure class 
 		 */
-		GameTemperature temp = new GameTemperature(0, 0);
+		GameTemperature temp = new GameTemperature(0);
 		
 		// This is the current location of the player (initialize as start).
 		// Maybe we'll expand this to a Player object.
 		String Thingy = game.getStart();
 
+		//Creating an arraylist that works as a backpack that saves the clues we've collected
 		ArrayList<Clue> BackPack= new ArrayList<>();
+		
 		// Play the game until quitting.
 		// This is too hard to express here, so we just use an infinite loop with breaks.
 		while (true) {
@@ -56,9 +57,7 @@ public class InteractiveFiction {
 			    Clue e = Clues.get(i);
 				System.out.println(" ["+i+"] " + e.getDescription());
 			}
-			
-			
-			
+		
 			
 			// Figure out what the user wants to do, for now, only "quit" is special.
 			List<String> words = input.getUserWords(">");
@@ -109,6 +108,7 @@ public class InteractiveFiction {
 				Clue destination = Clues.get(ClueNum);
 				Thingy = destination.getTarget();
 				
+				//Get clues we've collected along the way
 				Clue e = Clues.get(ClueNum);
 				BackPack.add(e);
 					
