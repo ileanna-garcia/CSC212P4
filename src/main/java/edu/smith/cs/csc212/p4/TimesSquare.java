@@ -4,9 +4,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * SpookyMansion, the game.
+ * Escape, the game.
  * @author jfoley
  *
+ */
+/**
+ * All graphics were taken from asciiart.eu
  */
 public class TimesSquare implements GameWorld {
 	private Map<String, Thingy> Thingys = new HashMap<>();
@@ -20,7 +23,7 @@ public class TimesSquare implements GameWorld {
 	}
 
 	/**
-	 * This constructor builds our SpookyMansion game.
+	 * This constructor builds our Escape game.
 	 */
 	public TimesSquare() {
 		Thingy turnstile = insert(
