@@ -28,7 +28,7 @@ public class TimesSquare implements GameWorld {
 						+ "You have to catch the fastest train out of the city. Where do you want to go?"));
 		turnstile.addClue(new Clue("Kinkyboots", "You follow the poster of Kinky Boots."));
 		turnstile.addClue(new Clue("The Umbrella Academy", "You follow the billboard of The Umbrella Academy."));
-		//;turnstile.addClue(new Clue("kitchen", "There is a red door."));
+		
 		
 		Thingy Kinkyboots = insert(
 				Thingy.create("Kinkyboots", "You're heading towards the N,Q,R train    "
