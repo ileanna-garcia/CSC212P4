@@ -20,7 +20,7 @@ public class InteractiveFiction {
 		TextInput input = TextInput.fromArgs(args);
 
 		// This is the game we're playing.
-		GameWorld game = new Henshaw();
+		GameWorld game = new TimesSquare();
 		
 		/**
 		 * This is calling GameTime class 
