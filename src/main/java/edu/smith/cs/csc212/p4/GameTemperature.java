@@ -9,7 +9,7 @@ int Degrees ;
 
 /**
  * This is creating a constructor that allows 
- * for two parameters to be passed to GameTemperature
+ * for one parameter to be passed to GameTemperature
  */
 	public GameTemperature (int Degrees) {
 
@@ -17,7 +17,7 @@ int Degrees ;
 	
 }
 /**
- * This returns the Degrees that will be printed in a clock format
+ * This returns the Degrees 
  * @return
  */
 	public int getDegree() {
@@ -26,13 +26,11 @@ int Degrees ;
 
 
 /**
- * This increases the Degrees and if the Degrees pass 
- * 23 then it restarts into another day
- * after the loop is done it'll display the Temperature
+ * This increases the Degrees but remember this temperature is unique to this world
  */
 public void increaseDegree(GameTime time) {
 	Degrees +=1;
-	System.out.println("It's currently " + Degrees +" degree fahrenheit");
+	System.out.println("It's currently " + Degrees +" degree newyorken.");
 	if (time.getHour() % 2 == 0 ) {
 		Degrees += 2;
 	}
@@ -40,9 +38,9 @@ public void increaseDegree(GameTime time) {
 }
 
 /**
- * This increases Degrees by 2 if conditional is true to make it faster to night
+ * This increases Degrees by 2 if conditional is true to make it faster to 250 degrees
  */
-public void rest() {
+public void accelerate() {
 	if(Degrees % 5 == 0) {
 	Degrees +=30;
 	}
@@ -50,12 +48,12 @@ public void rest() {
 }
 
 /**
- * This boolean checks if it's night or morning
+ * This boolean checks if it's too hot
  */
 
 public boolean isHot() {
 	
-	if(Degrees < 100) {
+	if(Degrees < 80) {
 	return false;
 	}
 	else {

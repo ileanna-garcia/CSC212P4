@@ -3,7 +3,7 @@ package edu.smith.cs.csc212.p4;
 import java.util.Objects;
 
 /**
- * This class represents an Clue from a Place to another Place.
+ * This class represents an Clue from a Thingy to another Thingy.
  * @author jfoley
  *
  */
@@ -13,7 +13,7 @@ public class Clue {
 	 */
 	private String description;
 	/**
-	 * How do we identify the Place that this is going.
+	 * How do we identify the Thing that this is going.
 	 */
 	private String target;
 	
@@ -43,6 +43,7 @@ public class Clue {
 		this.target = target;
 	}
 	
+
 	/**
 	 * A getter for the description of this Clue.
 	 * @return how it looks.

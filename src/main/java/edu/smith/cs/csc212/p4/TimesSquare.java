@@ -1,33 +1,55 @@
 package edu.smith.cs.csc212.p4;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 /**
  * Escape, the game.
  * @author jfoley
- *
+ * Remodeled by Kayahma Brown, Kiara Correa Acosta, Ileanna Garcia
  */
+
 /**
  * All graphics were taken from asciiart.eu
  */
+
 public class TimesSquare implements GameWorld {
 	private Map<String, Thingy> Thingys = new HashMap<>();
 	
-	/**
-	 * Where should the player start?
-	 */
+/**
+ * Where should the player start?
+ */
+	
 	@Override
 	public String getStart() {
-		return "turnstile";
-	}
 
+		System.out.println("Choose 1 or 2. This will determine where you start.\n"
+	   + "You're starting off with 100 NYC points. Get the closest to 100 to win the most NYC experience. \n");
+		Scanner scan = new Scanner(System.in);
+		int choice = scan.nextInt();
+		
+		if(choice == 1 ) {
+		return "turnstile";
+		}
+		
+		else {
+			System.out.println("\n You are trapped somewhere in Times Square train station.\n" 
+					+ "You have to catch the fastest train out of the city. Where do you want to go?");
+			return "TheMusic";
+		}
+		
+	}
+	
 	/**
 	 * This constructor builds our Escape game.
 	 */
+
 	public TimesSquare() {
+		
 		Thingy turnstile = insert(
-				Thingy.create("turnstile", "You have just entered Times Square train station.\n" 
+				Thingy.create("turnstile", "\n You have just entered Times Square train station.\n" 
 						+ "You have to catch the fastest train out of the city. Where do you want to go?"));
 		turnstile.addClue(new Clue("Kinkyboots", "You follow the poster of Kinky Boots."));
 		turnstile.addClue(new Clue("The Umbrella Academy", "You follow the billboard of The Umbrella Academy."));
@@ -35,12 +57,12 @@ public class TimesSquare implements GameWorld {
 		
 		Thingy Kinkyboots = insert(
 				Thingy.create("Kinkyboots", "You're heading towards the N,Q,R train    "
-						+ "_____                 . . . . . o o o o o\n" + 
-						"  __|[_]|__ ___________ _______    ____      o\n" + 
-						" |[] [] []| [] [] [] [] [_____(__  ][]]_n_n__][.\n" + 
-						"_|________|_[_________]_[________]_|__|________)<\n" + 
-						"  oo    oo 'oo      oo ' oo    oo 'oo 0000---oo\\_\n" + 
-						" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.\n" + 
+						+ "_____     . . . . . o o o o o\n" + 
+						" 					 __|[_]|__ ___________ _______    ____      o\n" + 
+						"					 |[] [] []| [] [] [] [] [_____(__  ][]]_n_n__][.\n" + 
+						"					_|________|_[_________]_[________]_|__|________)<\n" + 
+						"					  oo    oo 'oo      oo ' oo    oo 'oo 0000---oo\\_\n" + 
+						"					 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.\n" + 
 		                           "It looks kind of packed, but what train station isn't.\n" +
 						"You get the sense a secret is nearby, but you only see the stairs you came from."
 						));
@@ -53,11 +75,11 @@ public class TimesSquare implements GameWorld {
 				"   \\\\_|_||_||_|_//  \\ |\n" + 
 				"    \\___________/    \\|\n" + 
 				""));
-		Kinkyboots.addClue(new Clue("Rats", "You head further down to the end of the platform to wait because it's the shortest route home, but then you are faced with a swarm of rats./n"));
+		Kinkyboots.addClue(new Clue("Rats", "You head further down to the end of the platform to wait because it's the shortest route home, but then you are faced with a swarm of rats.\n"));
 		Kinkyboots.addClue(new Clue("turnstile","Go back to where you started!"));
 		
-		Thingy Rats= insert(Thingy.terminal("Rats","The rats eat you!"+ ""
-				+ "						  (\\,/)\n" + 
+		Thingy Rats= insert(Thingy.terminal("Rats","The rats eat you!"
+				+ "          (\\,/)\n" + 
 				"                            oo   '''//,        _\n" + 
 				"                          ,/_;~,        \\,    / '\n" + 
 				"                      \"'   \\    (    \\    !\n" + 
@@ -74,34 +96,38 @@ public class TimesSquare implements GameWorld {
 		TheUmbrellaAcademy.addClue(new Clue("Maintinance Door", "You head into the maintance door."));
 			
 		Thingy Maintinance_Door= insert(Thingy.terminal("Maintinance Door","You are immediately faced with a sleeping janitor."+
-				"            __________\n" + 
-				"           |  __  __  |\n" + 
-				"           | |  ||  | |\n" + 
-				"           | |  ||  | |\n" + 
-				"           | |__||__| |\n" + 
-				"           |  __  __()|\n" + 
-				"           | |  ||  | |\n" + 
-				"           | |  ||  | |\n" + 
-				"           | |  ||  | |\n" + 
-				"           | |  ||  | |\n" + 
-				"           | |__||__| |\n" + 
-				"ejm        |__________|" ));
+				"__________\n" + 
+				"                                                |  __  __  |\n" + 
+				"                                                | |  ||  | |\n" + 
+				"                 			        | |  ||  | |\n" + 
+				"                                                | |__||__| |\n" + 
+				"                                                |  __  __()|\n" + 
+				"                                                | |  ||  | |\n" + 
+				"                                                | |  ||  | |\n" + 
+				"                                                | |  ||  | |\n" + 
+				"                                                | |  ||  | |\n" + 
+				"                                                | |__||__| |\n" + 
+				"                                                |__________|" ));
 		
 		
 		Thingy TheMusic = insert(Thingy.create("TheMusic", "You watch the struggling musician play their spin on Old MacDonald."));
 		TheMusic.addClue(new Clue("Tunnel", "Continue down the tunnel to the sound of opera."));
 		TheMusic.addClue(new Clue("Beggar","You see an unemployed beggar in the corner. You head over to offer some help."));
 		
-		Thingy Beggar= insert(Thingy.terminal("Beggar","You walk away after giving them a chopped cheese and an arizona, only to find that you can't find your wallet./n"
+		Thingy Beggar= insert(Thingy.terminal("Beggar","You walk away after giving them a chopped cheese and an arizona, only to find that you can't find your wallet.\n"
 				+ " You head up to the Police Station :("));
 		
 		Thingy Tunnel = insert(Thingy.create("Tunnel", " At the end of the tunnel you see an escalator and head down."));
 		Tunnel.addClue(new Clue("Head_Left", "Make a Left"));
 		Tunnel.addClue(new Clue("Head_Right", "Make a Right"));
+		Tunnel.addClue(new SecretClue("Head_Straight", "Keep Going Straight"));
 		
+		Thingy Head_Straight = insert(hotThingys.terminal1("Head_Straight","As you were walking there you started melting away from the heat and died. :(",
+				"You were too busy looking at your phone to realize there was a pole." +
+		"You hit your head and NYPD took you to the hospital. :( " ));
 		
-		Thingy Head_Left= insert(Thingy.terminal("Head_Left","You are faced with a beautiful mural that cosequently collapses and suffocates you.:(. /n"+
-				"           _..--\"\"---.\n" + 
+		Thingy Head_Left= insert(Thingy.terminal("Head_Left","You are faced with a beautiful mural that cosequently collapses and suffocates you.:(."+
+				"         \n           _..--\"\"---.\n" + 
 				"          /           \".\n" + 
 				"          `            l\n" + 
 				"          |'._  ,._ l/\"\\\n" + 
@@ -138,14 +164,14 @@ public class TimesSquare implements GameWorld {
 				"  \\\\\\       |-\\               \\j ..          L,,'. `/\n" + 
 				" __\\\\\\     ( .-\\           .--'    ``--../..'      '-..\n" + 
 				"   `'''`----`\\\\\\\\ .....--'''\n" + 
-				"              \\\\\\\\                           -nabis  ''\n" + 
+				"              \\\\\\\\                                       ''\n" + 
 				""));
 		
 		Thingy Head_Right= insert(Thingy.create("Head_Right","You make a right and are faced with two hallways."));
 		Head_Right.addClue(new Clue("hallway0", "There is a long hallway."));
 		Head_Right.addClue(new Clue("hallway1", "There is an equally long hallway."));
 		
-		Thingy hallway0= insert(Thingy.terminal("hallway0", "You decide it's too long and turn back around:)/n" + "			88888888888888888888888888888888888888888888888888888888888888888888888\n" + 
+		Thingy hallway0= insert(Thingy.terminal("hallway0", "You decide it's too long and turn back around:)\n" + "88888888888888888888888888888888888888888888888888888888888888888888888\n" + 
 				"88.._|      | `-.  | `.  -_-_ _-_  _-  _- -_ -  .'|   |.'|     |  _..88\n" + 
 				"88   `-.._  |    |`!  |`.  -_ -__ -_ _- _-_-  .'  |.;'   |   _.!-'|  88\n" + 
 				"88      | `-!._  |  `;!  ;. _______________ ,'| .-' |   _!.i'     |  88\n" + 
@@ -173,7 +199,7 @@ public class TimesSquare implements GameWorld {
 		hallway1.addClue(new Clue("Train","You see the lights of an incoming train."));
 		hallway1.addClue(new Clue("turnstile","You turn around and find another way to get home."));
 		
-		Thingy Train = insert(Thingy.terminal("Train", "You see the A,C,& E train and the small crowd and no delays! You head home :) /n "+""
+		Thingy Train = insert(Thingy.terminal("Train", "You see the A,C,& E train and the small crowd and no delays! You head home :) \n "+""
 				+ "           o x o x o x o . . .\n" + 
 				"         o      _____            _______________ ___=====__T___\n" + 
 				"       .][__n_n_|DD[  ====_____  |    |.\\/.|   | |   |_|     |_\n" + 
@@ -193,6 +219,7 @@ public class TimesSquare implements GameWorld {
 	 * @param p - the Thingy.
 	 * @return the Thingy you gave us, so that you can store it in a variable.
 	 */
+	
 	private Thingy insert(Thingy p) {
 		Thingys.put(p.getId(), p);
 		return p;
@@ -201,6 +228,7 @@ public class TimesSquare implements GameWorld {
 	/**
 	 * I like this method for checking to make sure that my graph makes sense!
 	 */
+	
 	private void checkAllCluesGoSomewhere() {
 		boolean missing = false;
 		// For every Thingy:
@@ -222,12 +250,15 @@ public class TimesSquare implements GameWorld {
 			throw new RuntimeException("You have some Clues to nowhere!");
 		}
 	}
-
+	
 	/**
 	 * Get a Thingy object by name.
 	 */
+	
 	public Thingy getThingy(String id) {
 		return this.Thingys.get(id);		
 	}
+
+
 }
 

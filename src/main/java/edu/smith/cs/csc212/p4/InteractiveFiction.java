@@ -8,6 +8,7 @@ import java.util.List;
  * @author jfoley
  *
  */
+
 public class InteractiveFiction {
 
 
@@ -15,32 +16,39 @@ public class InteractiveFiction {
 	 * This is where we play the game.
 	 * @param args
 	 */
+
 	public static void main(String[] args) {
 		// This is a text input source (provides getUserWords() and confirm()).
 		TextInput input = TextInput.fromArgs(args);
-
+		
 		// This is the game we're playing.
+	
 		GameWorld game = new TimesSquare();
+		
 		
 		/**
 		 * This is calling GameTime class 
 		 */
+		
 		GameTime time = new GameTime(0, 0);
+		
 		/**
 		 * This is calling GameTempertaure class 
 		 */
+		
 		GameTemperature temp = new GameTemperature(0);
 		
 		// This is the current location of the player (initialize as start).
 		// Maybe we'll expand this to a Player object.
 		String Thingy = game.getStart();
 
-		//Creating an arraylist that works as a backpack that saves the clues we've collected
+		//Creating an ArrayList that works as a backpack that saves the clues we've collected
 		ArrayList<Clue> BackPack= new ArrayList<>();
 		
 		// Play the game until quitting.
 		// This is too hard to express here, so we just use an infinite loop with breaks.
 		while (true) {
+							
 			// Print the description of where you are.
 			Thingy here = game.getThingy(Thingy);
 			System.out.println(here.printDescription(temp));
@@ -81,9 +89,11 @@ public class InteractiveFiction {
 					continue;
 				}
 			}
+		
 			/**
 			 * This will help us find a secret Clue 
 			 */
+			
 			else if(action.equals("search")) {
 				here.search();
 				}
@@ -106,13 +116,13 @@ public class InteractiveFiction {
 
 				// Move to the room they indicated.
 				Clue destination = Clues.get(ClueNum);
-				Thingy = destination.getTarget();
-				
+				Thingy = destination.getTarget();			
 				//Get clues we've collected along the way
 				Clue e = Clues.get(ClueNum);
 				BackPack.add(e);
-					
-	
+				
+				
+				//We update the score to display after every move for it to be 100 - number of moves
 			}	
 		
 	
@@ -120,37 +130,59 @@ public class InteractiveFiction {
 			/**
 			 * This is allowing for the method to keep looping inside this while-loop and changing the hour
 			 */
+			
 			time.increaseHour();
+			
 			/**
 			 * This is allowing for the method to keep looping inside this while-loop and adding to final hours
 			 */
+			
 			time.increasefinalHour();
+			
 			/**
 			 * Every time hours are divisible by 5 we forward the time 2 hours.
 			 */
+			
 			time.rest();
+			
 			/**
 			 * This is allowing for the method to keep looping inside this while-loop and changing the degree
 			 */
+			
 			temp.increaseDegree(time);
+			
 			/**
 			 * Every time hours are divisible by 5 we forward the time 2 hours.
 			*/
-			temp.rest();
+			
+			temp.accelerate();
 			temp.deathTemp();
-		
+			
+
 		}
 		
 		// You get here by "quit" or by reaching a Terminal Thingy.
 		System.out.println(">>> GAME OVER <<<");
+		
 		/**
 		 * This is going to print out how many hours you were stuck
 		 */
+		
 		System.out.println("YOU WERE TRAPPED FOR " + time.getfinalHour() +" HOURS.");
+		
 		/**
 		 * This is going to print out how hot it was when you escaped.
 		 */
-		System.out.println("IT IS " + temp.getDegree() +"FAHRENHEIT");
+		
+		System.out.println("IT IS " + temp.getDegree() +" DEGREES NEWYORKEN.");
+		
+		/**
+		 * The total score will be calculated by subtracting the total number 
+		 * of moves we did (found by counting the size of our backpack)
+		 * from the highest possible score which is 100
+		 */
+		System.out.println("Your total score is: " + (100 - BackPack.size()));
+		
 	}
 
 }
