@@ -23,19 +23,22 @@ public class InteractiveFiction {
 		
 		// This is the game we're playing.
 	
-		GameWorld game = new TimesSquare();
+		GameWorld game = new StarterCodeTimesSquare();
 		
+		//Change to this so you can see how our solution of TimesSquare
+		//GameWorld game = new TimesSquare();
 		
-		/**
-		 * This is calling GameTime class 
-		 */
-		
-		GameTime time = new GameTime(0, 0);
-		
-		/**
-		 * This is calling GameTempertaure class 
-		 */
-		
+// This is the solution for heating and time. For steps on how to get here do the to do's
+//		/**
+//		 * This is calling GameTime class 
+//		 */
+//		
+//		GameTime time = new GameTime(0, 0);
+//		
+//		/**
+//		 * This is calling GameTempertaure class 
+//		 */
+//		This cannot be commented out from starter code because then we cannot print the description
 		GameTemperature temp = new GameTemperature(0);
 		
 		// This is the current location of the player (initialize as start).
@@ -51,6 +54,9 @@ public class InteractiveFiction {
 							
 			// Print the description of where you are.
 			Thingy here = game.getThingy(Thingy);
+			
+//			This cannot be commented out from starter code because then we cannot print the description
+			// The solution to get your temperature to work is the following. 
 			System.out.println(here.printDescription(temp));
 
 			// Game over after print!
@@ -120,68 +126,70 @@ public class InteractiveFiction {
 				//Get clues we've collected along the way
 				Clue e = Clues.get(ClueNum);
 				BackPack.add(e);
-				
-				
-				//We update the score to display after every move for it to be 100 - number of moves
 			}	
 		
-	
+//			This the solution for time and temperature. Review the to do's for steps on how to do it.
 			// From here on out, what they typed better be a number!
-			/**
-			 * This is allowing for the method to keep looping inside this while-loop and changing the hour
-			 */
+//			/**
+//			 * This is allowing for the method to keep looping inside this while-loop and changing the hour
+//			 */
+//			
+//			time.increaseHour();
+//			
+//			/**
+//			 * This is allowing for the method to keep looping inside this while-loop and adding to final hours
+//			 */
+//			
+//			time.increasefinalHour();
+//			
+//			/**
+//			 * Every time hours are divisible by 5 we forward the time 2 hours.
+//			 */
+//			
+//			time.rest();
+//			
+//			/**
+//			 * This is allowing for the method to keep looping inside this while-loop and changing the degree
+//			 */
+//			
+//			temp.increaseDegree(time);
+//			
+//			/**
+//			 * Every time hours are divisible by 5 we forward the degrees by 30.
+//			*/
+//			
+//			temp.accelerate();
 			
-			time.increaseHour();
-			
-			/**
-			 * This is allowing for the method to keep looping inside this while-loop and adding to final hours
-			 */
-			
-			time.increasefinalHour();
-			
-			/**
-			 * Every time hours are divisible by 5 we forward the time 2 hours.
-			 */
-			
-			time.rest();
-			
-			/**
-			 * This is allowing for the method to keep looping inside this while-loop and changing the degree
-			 */
-			
-			temp.increaseDegree(time);
-			
-			/**
-			 * Every time hours are divisible by 5 we forward the time 2 hours.
-			*/
-			
-			temp.accelerate();
-			temp.deathTemp();
+//			/**
+//			 * update to check if you have reached 250 for the death time.
+//			 */
+//			temp.deathTemp();
 			
 
 		}
 		
 		// You get here by "quit" or by reaching a Terminal Thingy.
 		System.out.println(">>> GAME OVER <<<");
-		
-		/**
-		 * This is going to print out how many hours you were stuck
-		 */
-		
-		System.out.println("YOU WERE TRAPPED FOR " + time.getfinalHour() +" HOURS.");
-		
-		/**
-		 * This is going to print out how hot it was when you escaped.
-		 */
-		
-		System.out.println("IT IS " + temp.getDegree() +" DEGREES NEWYORKEN.");
-		
-		/**
-		 * The total score will be calculated by subtracting the total number 
-		 * of moves we did (found by counting the size of our backpack)
-		 * from the highest possible score which is 100
-		 */
-		System.out.println("Your total score is: " + (100 - BackPack.size()));
+//		This the solution for time and temperature and score. Review the to do's for steps on how to do it.
+//      Other solutions for score are acceptable if they follow the rubric.
+//		/**
+//		 * This is going to print out how many hours you were stuck
+//		 */
+//		
+//		System.out.println("YOU WERE TRAPPED FOR " + time.getfinalHour() +" HOURS.");
+//		
+//		/**
+//		 * This is going to print out how hot it was when you escaped.
+//		 */
+//		
+//		System.out.println("IT IS " + temp.getDegree() +" DEGREES NEWYORKEN.");
+//		
+//		/**
+//		 * The total score will be calculated by subtracting the total number 
+//		 * of moves we did (found by counting the size of our backpack)
+//		 * from the highest possible score which is 100
+//		 */
+//		System.out.println("Your total score is: " + (100 - BackPack.size()));
 		
 	}
 

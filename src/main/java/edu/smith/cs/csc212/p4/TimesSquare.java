@@ -1,6 +1,9 @@
 package edu.smith.cs.csc212.p4;
 
-import java.util.ArrayList;
+//This is our solution for how to do TimesSquare. To implement it check the comments in InteractiveFiction.
+//If there's another way as long as it follows the rubric it.
+
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;

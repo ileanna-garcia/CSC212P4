@@ -74,6 +74,7 @@ public class Thingy {
 	 * Implementing GameTemp in order to know whether it is day or night to print a certain description
 	 * @return what we show to a player about this Thingy.
 	 */
+	//We can't delete this because of errors but this is how to implement different descriptions for temp
 	public String printDescription(GameTemperature temp) {
 		return this.description;
 		
@@ -84,6 +85,7 @@ public class Thingy {
 	 * This code was gotten from JJ on Piazza
 	 * @return all the Clues from this Thingy.
 	 */
+	//We can't delete because of errors this but this is how to implement secretclues
 	public List<Clue> getVisibleClues() {
 		  List<Clue> output = new ArrayList<>();
 		  for (Clue e : this.Clues) {

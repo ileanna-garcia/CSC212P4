@@ -1,5 +1,7 @@
 package edu.smith.cs.csc212.p4;
 
+//This is the solution for Game Time. To implement it check the comments in InteractiveFiction.
+
 public class GameTime {
 	/**
 	 * This initializes the hours
@@ -62,7 +64,7 @@ public void increasefinalHour() {
  */
 public void rest() {
 	if(hours%5==0) {
-	hours +=2;
+		hours +=2;
 	}
 	
 }
@@ -74,10 +76,9 @@ public void rest() {
 public boolean isNightTime() {
 	
 	if(hours%24 < 12) {
-	return false;
+		return false;
 	}
 	else {
-		
 		return true;
 	}
 	

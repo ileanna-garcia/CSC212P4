@@ -47,7 +47,7 @@ Your code should be professional. There should be comments on everything that yo
 - (4) Have some misleading clues aka one-way paths (a clue that leads nowhere)
 
 ### Implement a score (= 5)
- - (5) Add a score that displays the maximum amount in the beginning and prints out the final score at the end.
+ - (5) Add a scoring system that displays the maximum amount in the beginning and prints out the final score at the end.
  
 ### Implement a starting option (= 5)
  - (5) Before your game starts give the player an option on where to start.
@@ -61,7 +61,7 @@ Your code should be professional. There should be comments on everything that yo
 - (4) Put a SecretClue that leads from one object to the last clue.
  
 ### Create a heating system in your game. (=16) 
-- (8) Create a class GameTemperature, that has an int degree as a state, ranging from 0 to 250 (inclusive). Implement int getDegree() and void increaseDegree() and print out the temperature in newyorken. 
+- (8) Create a class GameTemperature, that has an int degree as a state, ranging from 0 to 250 (inclusive). Implement int getDegree() and void increaseDegree() and print out the temperature in newyorken. (A temperature system where each number equals its degree. Ex: 1 = 1 degree, 2 = 2 degree, etc.) 
 - (4) Extend the game's concept of a player with current temperature. Increment the temperature every time the player finds a clue. Print out the current temperature after a clue description.
 - (4) End the game when the temperature reaches 250 degrees.
  

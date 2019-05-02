@@ -1,5 +1,7 @@
 package edu.smith.cs.csc212.p4;
 
+//This is the solution for SecretClue. To implement it check the comments in InteractiveFiction.
+
 public class SecretClue extends Clue {
 	/**
 	 * Private boolean hidden starts off as true so we can see if it's true

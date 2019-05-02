@@ -1,5 +1,7 @@
 package edu.smith.cs.csc212.p4;
 
+//This is the solution for HotThingys. To implement it check the comments in InteractiveFiction.
+
 public class hotThingys extends Thingy {
 	/**
 	 * This initializes what hot and cold descriptions are
@@ -11,7 +13,7 @@ String coldDescription;
  * creates the constructors for hot Thingys 
  */
 	public hotThingys(String id, String hotDescription, boolean terminal, String coldDescription) {
-		super(id, hotDescription,terminal);
+		super(id, hotDescription, terminal);
 		this.hotDescription = hotDescription;
 		this.coldDescription = coldDescription;
 	}

@@ -1,5 +1,8 @@
 package edu.smith.cs.csc212.p4;
 
+
+//This is the solution for Game Temperature. To implement it check the comments in InteractiveFiction.
+
 public class GameTemperature {
 	/**
 	 * This initializes the Degrees
@@ -26,7 +29,7 @@ int Degrees ;
 
 
 /**
- * This increases the Degrees but remember this temperature is unique to this world
+ * This increases the Degrees but remember this temperature system is unique to this world
  */
 public void increaseDegree(GameTime time) {
 	Degrees +=1;
@@ -42,7 +45,7 @@ public void increaseDegree(GameTime time) {
  */
 public void accelerate() {
 	if(Degrees % 5 == 0) {
-	Degrees +=30;
+		Degrees += 30;
 	}
 	
 }
@@ -54,7 +57,7 @@ public void accelerate() {
 public boolean isHot() {
 	
 	if(Degrees < 80) {
-	return false;
+		return false;
 	}
 	else {
 		
@@ -62,14 +65,16 @@ public boolean isHot() {
 	}
 }
 
+/**
+ * this breaks the game of degrees = 250
+ */
+
 public void deathTemp() {
 	while(Degrees >= 250) {
 		if(Degrees == 250) {
 			break;	
 		}
-    }
-	
-	
+    }	
 }
 
 }

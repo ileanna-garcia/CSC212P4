@@ -21,7 +21,7 @@ public class Clue {
 	/**
 	 * Clues that are secret are displayed if they are searched for
 	 */
-	
+	//One of the solutions for secret clue
 	public boolean isSecret() {
 
 		return false;
